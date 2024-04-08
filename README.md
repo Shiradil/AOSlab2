@@ -1,10 +1,10 @@
 # OS Parameters Display Tool
-Project created by Astana IT Student - Shirbayev Adilzhan. <br>
+Project created by Astana IT Student - Shirbayev Adilzhan from SE-2204 group.<br>
 This Python script retrieves and displays essential parameters of the operating system, including OS name and version, processor information, total memory, available disk space, current user, IP address, system uptime, CPU usage, and more.
 
 ## Features
 <ul>
-<li>Retrieve OS name and version. </li>
+<li>Retrieve OS name and version. There might be a problem if you are using Windows 11, it would print that you are using 10th windows because Windows 11 and Windows 10 share a substantial amount of their codebase and, to a large extent, are treated by Microsoft as different versions/builds of the same core OS. </li>
 <li>Display processor information.</li>
 <li>Show total system memory.</li>
 <li>List available disk space.</li>
