@@ -1,37 +1,38 @@
-# OS Parameters Display Tool
-Project created by Astana IT Student - Shirbayev Adilzhan from SE-2204 group.<br>
-This Python script retrieves and displays essential parameters of the operating system, including OS name and version, processor information, total memory, available disk space, current user, IP address, system uptime, CPU usage, and more.
+# System Resource Monitor
 
-## Features
-<ul>
-<li>Retrieve OS name and version. There might be a problem if you are using Windows 11, it would print that you are using 10th windows because Windows 11 and Windows 10 share a substantial amount of their codebase and, to a large extent, are treated by Microsoft as different versions/builds of the same core OS. </li>
-<li>Display processor information.</li>
-<li>Show total system memory.</li>
-<li>List available disk space.</li>
-<li>Identify the current user.</li>
-<li>Display the system's IP address.</li>
-<li>Show system uptime.</li>
-<li>Display current CPU usage.</li>
-<li>Summarize running processes.</li>
-<li>Provide disk partitions information.</li>
-<li>Display system architecture.</li>
-<li>List environment variables. </li>
-</ul>
+## Overview
+This Python script is designed to monitor and analyze system resource usage over time. It collects data on CPU usage, memory usage by each process, and available disk space, storing this data for later analysis. The script plots the CPU usage and disk space over time, helping identify trends and peak usage periods.
 
-## Dependencies
-<ul>
-<li>Python 3.6 or newer</li>
-<li>psutil</li>
-</ul>
+## Data Collection
+The script runs a loop, collecting system parameters every minute. It records the following:
+- CPU usage as a percentage
+- Memory usage by each process
+- Available disk space in gigabytes
 
-To install psutil run the command ```pip install psutil``` in the terminal
+The data is stored in an internal data structure for the duration of the monitoring period.
 
-## How to run
-<ol>
-<li>Clone this repository to your local machine using Git.</li>
-<li>Open a terminal and navigate to the directory where you cloned this repository.</li>
-<li>Run the script with the following command: </li>
-</ol>
+## Data Analysis
+After collecting data for a defined period (configurable by the user), the script performs the following analysis:
+- CPU usage variation over time
+- Process with the highest average memory usage
+- Disk space availability trend
 
-```python os_parameters.py```
+## Questions and Answers
+
+### How does the CPU usage vary over time? Is there a specific time when the CPU usage peaks?
+The CPU usage varies depending on system activity. The script records CPU usage percentage at one-minute intervals. To determine if there is a specific time when CPU usage peaks, the script plots the CPU usage over the collection period. The time of peak CPU usage can be observed on the generated graph.
+
+### Which process uses the most memory on average?
+The script collects memory usage of each process every minute. It calculates the average memory usage of each process over the monitoring period. The process that uses the most memory on average is identified and printed in the console output.
+
+### How does the available disk space change over time?
+Similar to CPU usage, the script monitors the available disk space at one-minute intervals. The trend of available disk space over time is plotted on a graph. Any significant changes or trends can be observed, allowing for an assessment of disk space usage.
+
+## Result Presentation
+The results are presented in two ways:
+1. Console Output: Immediate printout of the collected data at each interval.
+2. Graphs: Using the `matplotlib` library, the script generates graphs for visualizing CPU usage and available disk space over time.
+
+## Usage
+To run the script, ensure you have Python and the required libraries (`psutil` and `matplotlib`) installed. Run the script from the command line or an IDE. The monitoring period can be adjusted in the `collect_data` function.
 
